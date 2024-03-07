@@ -1,0 +1,69 @@
+              -----------------------------
+              Version 0.5 of the iaria class
+                  Christoph P. Neumann
+              -----------------------------
+
+This package contains templates for the creation of documents for
+IARIA publications (International Academy, Research, and Industry Association)
+and implements the specifications for the IARIA citation style.
+
+This class does not contain evil low-level TeX magic
+but instead uses many other fancy LaTeX packages
+that we hope you have already installed.
+
+DISCLAIMER: This class is neither for XeLaTeX or LuaTeX
+nor for legacy bibtex or natbib. For these have a look
+at CTAN package iaria-lite.
+
+This work may be distributed and/or modified under the
+conditions of the LaTeX Project Public License, either version 1.3c
+of this license or (at your option) any later version.
+The latest version of this license is in
+  http://www.latex-project.org/lppl.txt
+and version 1.3c or later is part of all distributions of LaTeX
+version 2008/05/04 or later.
+
+
+Installation
+------------
+
+After unzipping the package call:
+
+  $ latex iaria.ins
+
+This will be extract some files (iaria.cls, iariaNLS.sty...). Create a
+directory beneath your TeX installation preferably create 
+
+  tex/latex/iaria
+
+and copy all files of the package and the extracted files to that directory.
+
+Call:
+
+  mktexlsr
+
+
+Templates
+---------
+
+In the template directory you can find an example document.
+
+
+Source Code
+-----------
+
+The source code of this latex package can be found at:
+https://github.com/cyberlytics/iaria
+
+The build that creates the CTAN-conforming upload ZIP archive
+can be achieved with the Docker image at Dockerhub:
+cyberlytics/ctan-prep:latest
+
+An examplery 'make dist' call is:
+docker run --rm -it -v ${PWD}/:/app cyberlytics/ctan-prep:latest make dist
+
+The source code of this supportive Docker image can be found at:
+https://github.com/cyberlytics/ctan-prep
+
+
+/Christoph P. Neumann, <cyberpetaneuron+iaria@gmail.com>

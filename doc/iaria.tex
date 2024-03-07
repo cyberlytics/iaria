@@ -1,0 +1,127 @@
+\documentclass{ltxdoc}
+
+\CodelineNumbered
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\GetFileInfo{iaria.cls}
+
+\parskip1.0ex
+\parindent0.0ex
+
+\begin{document}
+\title{\textsf{iaria}\\
+An Unofficial IARIA LaTeX Class}
+\author{Christoph P.\ Neumann \texttt{$<$cyberpetaneuron@gmail.com$>$}}
+\date{Version 0.5}
+\maketitle
+\PrintChanges
+
+\begin{abstract}
+The \texttt{iaria}--class provides a convenient environment for writing IARIA scholary publications.
+This version also implements full IARIA specifications for citation style,
+which can only be templated for a specific technological combination like latex/pdflatex in combination with biblatex using a biber backend.
+\end{abstract}
+
+\section{Installation}
+
+The \texttt{zip} or \texttt{tar.gz} file comes with a \texttt{iaria.ins}
+and a \texttt{iaria.dtx} file included which contains the \LaTeX\ stuff.
+
+To extract the class files call:
+
+\begin{verbatim}
+  $ latex iaria.ins
+\end{verbatim}
+
+This call will extract all \LaTeX\ specific files to the current
+directory. You can either use the files for a single
+cv project or you can integrate the files into your \TeX\ installation.
+
+If you just want to use \textsf{iaria} for a single curriculum vitae
+project, the simplest way is just to copy the generated files to the
+folder of the project.
+
+If you want to integrate \textsf{iaria} into  your \TeX\ installation,
+create a directory \texttt{tex/latex/iaria} beneath your \TeX\ installation
+(e.g.~beneath \texttt{/usr/share/texmf}) and copy all files from the
+current directory there. Now call:
+
+\begin{verbatim}
+  $ mktexlsr
+\end{verbatim}
+
+to update the file--cache of \LaTeX.
+
+Hint: The \textsf{iaria} distribution contains a sample docstrip configuration
+in \texttt{docstrip.cfg} via which files can be distributed
+automatically to their correct positions inside a \LaTeX\ installation.
+Feel free to adapt this file to your environment and afterwards call
+\texttt{latex iaria.ins} to install the package to its right place.
+
+\section{Templates}
+
+For a quick start the \textsf{iaria} distribution contains document
+templates.
+The templates can be found in the \texttt{iaria-example-neumann.zip} file.
+
+\section{Documentclass}
+
+\DescribeMacro{documentclass iaria}
+This package provides the documentclass \texttt{iaria}. The documentclass
+supports the following options:
+
+\begin{itemize}
+\item |conference| Passed to IEEEtran
+\item |a4paper|    Passed to IEEEtran
+\item |subfig|     Loads subfig package with IARIA style settings
+\item |subcaption| Loads subcaption package with IARIA style settings
+\item |flushend|   Activate flushend package (compatible with arXiv build process)
+\item |pbalance|   Activate pbalance package (incompatible with arXiv build process)
+\end{itemize}
+
+A Remark about two-column document balancing on the last page:
+The flushend package is recommended, because it works within the arXiv automated build process.
+However, flushend has a major incampatibility with package lineno, which is, e.\,g., transitively loaded by package mindflow.
+Thus, in case when flushend does not have any effect, check whether one of your packages loads lineno.
+Usually you are stuck with your packages and, thus, will instead be forced to switch from flushend to pbalance.
+Please be aware that pbalance works great and has high compatibility, but unfortunately it will not have any effect within the arXiv automated build process.
+In case of both, a somehow needed lineno package and an intended arXiv upload, I recommend to do without two-column balancing on the last page and just to stay away from both flushend and pbalance, in order to ensure that your paper is layouted identically in IARIA submission and arXiv upload.
+I hope this remark proves helpful, it took me some nerve to find out.
+
+There is also another important difference between flushend and pbalance: the handling of footnotes on the last page.
+Flushend provides a decent result, but the result of pbalance is incomprehensible.
+I strongly recommend avoiding footnotes on the last page.
+If you absolutely need footnotes on the last page, consider staying away from two-column balancing on the last page.
+
+About subfigures:
+Both well-known packages subfig and subcaption can be used.
+However, they are not compatible with each other and we can either load one or the other.
+Both require dedicated style settings to be compatible with IARIA formatting rules.
+Thus, the document class provides options to load them for you with correct settings.
+
+\section{Requirements}
+
+We instrument several other \LaTeX\ packages for different purposes,
+which must be available under your installation.
+
+\begin{itemize}
+\item IEEEtran
+\item biblatex
+\item extdash
+\item flushend
+\item fontenc
+\item graphicx
+\item hyperref
+\item inputenc
+\item orcidlink
+\item pbalance
+\item subcaption
+\item subfig
+\item times
+\item url
+\item xcolor
+\item xpatch
+\end{itemize}
+
+\end{document}

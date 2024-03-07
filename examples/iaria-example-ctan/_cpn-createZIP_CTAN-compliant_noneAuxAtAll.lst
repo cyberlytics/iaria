@@ -1,0 +1,11 @@
+*.cmd
+*.ps1
+*.ps
+*.zip
+*.lst
+*.tcp
+*.cls
+*.bbl
+.*
+embedded.bib
+selfref.bib

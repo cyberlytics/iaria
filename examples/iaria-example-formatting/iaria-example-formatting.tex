@@ -1,0 +1,348 @@
+\PassOptionsToPackage{cmyk,table}{xcolor}
+\documentclass[conference,pbalance,subfig]{iaria}
+\pdfoutput=1 % pdflatex hint for arxiv.org (within first 5 lines)
+
+% en-US  = [english]/[american]/[USenglish] <DEFAULT>
+\usepackage[babel=true,english=american]{csquotes}
+\usepackage[english]{babel} % en-US
+% IARIA requires uppercase TABLE, and babel intervenes in the tablename
+\addto\captionsenglish{\renewcommand\tablename{TABLE}}
+% en-UK  =           [british] /[UKenglish] <OXFORD>
+%\usepackage[babel=true,english=british]{csquotes}
+%\usepackage[british]{babel} % en-UK
+%% IARIA requires uppercase TABLE, and babel intervenes in the tablename
+%\addto\captionsbritish{\renewcommand\tablename{TABLE}}
+
+\usepackage[alwaysadjust]{paralist}
+
+% Class iaria.cls loads biblatex / biber with predefined options
+\addbibresource{embedded.bib}
+
+\usepackage[
+  babel=true, % Enable language-specific kerning. Take language-settings from the languge of the current document (see Section 6 of microtype.pdf)
+  expansion=alltext,
+  protrusion=alltext-nott, % Ensure that at listings, there is no change at the margin of the listing
+  nopatch=eqnum, % fix unable to apply patch eqnum
+  final % Always enable microtype, even if in draft mode. This helps finding bad boxes quickly.
+        % In the standard configuration, this template is always in the final mode, so this option only makes a difference if "pros" use the draft mode
+]{microtype}
+
+\usepackage{fontawesome} % i.a., \faWarning{}
+\usepackage{relsize}     % i.a., \textsmaller{...}
+
+\begin{filecontents}[overwrite]{embedded.bib}
+@online{ieee2015howto,
+    author = {Michael Shell},
+    title = {How to Use the {IEEEtran} \LaTeX\ Class},
+    url = {http://mirrors.ctan.org/macros/latex/contrib/IEEEtran/IEEEtran_HOWTO.pdf},
+    year = {2015}
+}
+@online{ieee2018formattingrules,
+    author = {{IEEE}},
+    title = {Conference Template and Formatting Specifications},
+    url = {https://www.ieee.org/content/dam/ieee-org/ieee/web/org/conferences/Conference-template-A4.doc},
+    year = {2018}
+}
+@online{iaria2014formattingrules,
+    author = {{IARIA}},
+    title = {Formatting Rules},
+    url = {http://www.iaria.org/formatting.doc},
+    year = {2014}
+}
+@online{iaria2009editorialrules,
+    _author = {Cosmin Dini},
+    author = {{IARIA}},
+    title = {Editorial Rules},
+    url = {https://www.iaria.org/editorialrules.html},
+    year = {2009}
+}
+@article{eason1955certain,
+    title={On certain integrals of Lipschitz-Hankel type involving products of {Bessel} functions},
+    author={Eason, George and Noble, Benjamin and Sneddon, Ian Naismith},
+    journal={Philosophical Transactions of the Royal Society of London. Series A, Mathematical and Physical Sciences},
+    volume={247},
+    number={935},
+    pages={529--551},
+    year={1955},
+    publisher={The Royal Society London}
+}
+@book{maxwell1873treatise,
+    title={A Treatise on Electricity and Magnetism},
+    author={Maxwell, James Clerk},
+    volume={2},
+    edition={3rd},
+    year={1873},
+    publisher={Oxford: Clarendon Press}
+}
+@article{jacobs1963fine,
+    title={Fine particles, thin films and exchange anisotropy},
+    author={Jacobs, I S and C P Bean},
+    journal={Magnetism},
+    volume={3},
+    pages={271--350},
+    year={1963},
+    publisher={New York: Academic}
+}
+@unpublished{four,
+    author = {K Elissa},
+    title  = {Title of paper if known},
+    note   = {unpublished}
+}
+@article{five,
+    title={Title of paper with only first word capitalized},
+    author={R Nicole},
+    journal={J. Name Stand},
+    note={in press}
+}
+@article{yorozu1987electron,
+    title={Electron spectroscopy studies on magneto-optical media and plastic substrate interface},
+    author={Yorozu, T and Hirano, M and Oka, K and Tagawa, Y},
+    journal={IEEE Transl. J. Magn. Japan},
+    volume={2},
+    pages={740--741},
+    year={1987},
+    month=aug,
+    publisher={IEEE},
+    note = {[Digests 9th Annual Conf. Magnetics Japan, p. 301, 1982]}
+}
+@book{young2002technical,
+    title={The Technical Writer’s Handbook},
+    author={Young, Matt},
+    year={1989},
+    publisher={University Science},
+    address={Mill Valley, CA}
+}
+@article{kornack2001cell,
+    title={{Cell Proliferation without Neurogenesis in Adult Primate Neocortex}},
+    author={Kornack, David and Rakic, Pasko},
+    journal={Science},
+    volume={294},
+    pages={2127--2130},
+    month=dec,
+    year={2001},
+    doi={10.1126/science.1065467}
+}
+@inproceedings{kito2013emergent,
+    title={{Emergent Design System Using Computer-Human Interactions and Serendipity}},
+    author={Kito, Akira and Mizumachi, Yuki and Sato, Koichiro and Matsuoka, Yoshiyuki},
+    booktitle={The Sixth International Conference on Advances in Computer-Human Interactions (ACHI 2013) IARIA},
+    pages={7--12},
+    year={2013},
+    month=feb,
+    issn={2308-4138},
+    isbn={978-1-61208-250-9}
+}
+@inproceedings{goto2007efficient,
+    title={{Efficient Scheduling Focusing on the Duality of MPL Representatives}},
+    author={Goto, Hiroyuki and Hasegawa, Yusuke and Tanaka, Masaki},
+    booktitle={Proc. IEEE Symp. Computational Intelligence in Scheduling (SCIS 07)},
+    pages={57--64},
+    year={2007},
+    month=dec,
+    organization={IEEE Press},
+    doi={10.1109/SCIS.2007.357670}
+}
+\end{filecontents}
+
+% Capitalization: https://capitalizemytitle.com/style/Chicago/
+\title{Paper Title}
+
+\author{
+    \IEEEauthorblockN{Authors Name/s per 1st Affiliation \emph{(Author)}}
+    \IEEEauthorblockA{%
+        line 1 (of Affiliation): dept.\ name of organization\\
+        line 2: name of organization, acronyms acceptable\\
+        line 3: City, Country\\
+        % Diferring from IEEE ("Email"), IARIA requires "e-mail":
+        line 4: e-mail: {\tt name@xyz.com}
+    }
+}
+
+% https://www.silbentrennung24.de/
+% https://www.hyphenation24.com/
+\hyphenation{block-chain block-chains Ethe-re-um}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This electronic document is a “live” template. The various components of your paper [title, text, heads, etc.] are already defined on the style sheet, as illustrated by the portions given in this document. DO NOT USE SPECIAL CHARACTERS, SYMBOLS, OR MATH IN YOUR TITLE OR ABSTRACT.
+\end{abstract}
+
+% A list of IEEE Computer Society appoved keywords can be obtained at
+% http://www.computer.org/mc/keywords/keywords.htm
+\begin{IEEEkeywords}
+component; formatting; style; styling; insert (key words).
+\end{IEEEkeywords}
+
+\section{Introduction (Heading 1)}
+
+The IARIA \LaTeX\ class is based on IEEE and its IEEEtran class \cite{ieee2015howto}.
+The following IARIA formatting rules are adopted from the IEEE template and formatting specifications \cite{ieee2018formattingrules}.
+% and from the original IARIA formatting rules Microsoft Word file \cite{iaria2014formattingrules}.
+
+All manuscripts must be in English. These guidelines include complete descriptions of the fonts, spacing, and related information for producing your proceedings manuscripts. Please follow them and if you have any questions, direct them to the production editor in charge of your proceedings at Conference Publishing Services (CPS): Phone +1 (714) 821-8380 or Fax +1 (714) 761-1784.
+
+This template provides authors with most of the formatting specifications needed for preparing electronic versions of their papers. All standard paper components have been specified for three reasons: (1) ease of use when formatting individual papers, (2) automatic compliance to electronic requirements that facilitate the concurrent or later production of electronic products, and (3) conformity of style throughout a conference proceedings. Margins, column widths, line spacing, and type styles are built-in; examples of the type styles are provided throughout this document and are identified in italic type, within parentheses, following the example. PLEASE DO NOT RE-ADJUST THESE MARGINS. Some components, such as multi-leveled equations, graphics, and tables are not prescribed, although the various table text styles are provided. The formatter will need to create these components, incorporating the applicable criteria that follow. The rest of this paper is organized as follows. Section II describes the type styles and fonts used. Section III describes the use and formatting maintenance. Section IV addresses the content approach. Section V goes into finer details with respect to the use of the template.  The acknowledgement and conclusions close the article.
+
+Your paper should also comply with the additional \textsmaller{IARIA} editorial rules:
+\url{https://www.iaria.org/editorialrules.html} \faWarning{}
+
+\section{Type Style and Fonts}
+Wherever Times is specified, Times Roman or Times New Roman may be used. If neither is available on your word processor, please use the font closest in appearance to Times. Avoid using bit-mapped fonts if possible. True-Type 1 or Open Type fonts are preferred. Please embed symbol fonts, as well, for math, etc.
+
+\section{Ease of Use}
+
+\subsection{Selecting a Template (Heading 2)}
+First, confirm that you have the correct template for your paper size. This template has been tailored for output on the US-letter paper size.
+
+\subsection{Maintaining the Integrity of the Specifications}
+The template is used to format your paper and style the text. All margins, column widths, line spaces, and text fonts are prescribed; please do not alter them. You may note peculiarities. For example, the head margin in this template measures proportionately more than is customary. This measurement and others are deliberate, using specifications that anticipate your paper as one part of the entire proceedings, and not as an independent document. Please do not revise any of the current designations.
+
+\section{Prepare Your Paper Before Styling}
+
+Before you begin to format your paper, first write and save the content as a separate text file. Keep your text and graphic files separate until after the text has been formatted and styled. Do not use hard tabs, and limit use of hard returns to only one return at the end of a paragraph. Do not add any kind of pagination anywhere in the paper. Do not number text heads-the template will do that for you.
+
+Finally, complete content and organizational editing before formatting. Please take note of the following items when proofreading spelling and grammar:
+
+\subsection{Abbreviations and Acronyms}
+Define abbreviations and acronyms the first time they are used in the text, even after they have been defined in the abstract. Abbreviations such as IEEE, SI, MKS, CGS, sc, dc, and rms do not have to be defined. Do not use abbreviations in the title or heads unless they are unavoidable.
+
+\subsection{Units}
+\begin{compactitem}
+\item Use either SI (MKS) or CGS as primary units. (SI units are encouraged.) English units may be used as secondary units (in parentheses). An exception would be the use of English units as identifiers in trade, such as “3.5-inch disk drive”.
+\item Avoid combining SI and CGS units, such as current in amperes and magnetic field in oersteds. This often leads to confusion because equations do not balance dimensionally. If you must use mixed units, clearly state the units for each quantity that you use in an equation.
+\item Do not mix complete spellings and abbreviations of units: “Wb/m2” or “webers per square meter”, not “webers/m2”.  Spell out units when they appear in text: “\ldots a few henries”, not “\ldots a few H”.
+\item Use a zero before decimal points: “0.25”, not “.25”.
+\end{compactitem}
+
+\subsection{Equations}
+
+The equations are an exception to the prescribed specifications of this template. You will need to determine whether or not your equation should be typed using either the Times New Roman or the Symbol font (please no other font). To create multileveled equations, it may be necessary to treat the equation as a graphic and insert it into the text after your paper is styled.
+
+Number equations consecutively. Equation numbers, within parentheses, are to position flush right, as in (1), using a right tab stop. To make your equations more compact, you may use the solidus ( / ), the exp function, or appropriate exponents. Italicize Roman symbols for quantities and variables, but not Greek symbols. Use a long dash rather than a hyphen for a minus sign. Punctuate equations with commas or periods when they are part of a sentence, as in
+
+\[ x^n + y^n = z^n \]
+
+Note that the equation is centered using a center tab stop. Be sure that the symbols in your equation have been defined before or immediately following the equation. Use “(1)”, not “Eq. (1)” or “equation (1)”, except at the beginning of a sentence: “Equation (1) is \ldots”
+
+\subsection{Some Common Mistakes}
+
+\begin{compactitem}
+\item The word “data” is plural, not singular.
+\item The subscript for the permeability of vacuum $\mu_0$, and other common scientific constants, is zero with subscript formatting, not a lowercase letter “o”.
+\item In American English, commas, semi-/colons, periods, question and exclamation marks are located within quotation marks only when a complete thought or name is cited, such as a title or full quotation. When quotation marks are used, instead of a bold or italic typeface, to highlight a word or phrase, punctuation should appear outside of the quotation marks. A parenthetical phrase or statement at the end of a sentence is punctuated outside of the closing parenthesis (like this). (A parenthetical sentence is punctuated within the parentheses.)
+\item A graph within a graph is an “inset”, not an “insert”. The word alternatively is preferred to the word “alternately” (unless you really mean something that alternates).
+\item Do not use the word “essentially” to mean “approximately” or “effectively”.
+\item In your paper title, if the words “that uses” can accurately replace the word “using”, capitalize the “u”; if not, keep using lower-cased.
+\item Be aware of the different meanings of the homophones “affect” and “effect”, “complement” and “compliment”, “discreet” and “discrete”, “principal” and “principle”.
+\item Do not confuse “imply” and “infer”.
+\item The prefix “non” is not a word; it should be joined to the word it modifies, usually without a hyphen.
+\item There is no period after the “et” in the Latin abbreviation “et al.”.
+\item The abbreviation “i.\,e.” means “that is”, and the abbreviation “e.\,g.” means “for example”.
+\end{compactitem}
+
+An excellent style manual for science writers is \cite{young2002technical}.
+
+\section{Using the Template}
+After the text edit has been completed, the paper is ready for the template. Duplicate the template file by using the Save As command, and use the naming convention prescribed by your conference for the name of your paper. In this newly created file, highlight all of the contents and import your prepared text file. You are now ready to style your paper.
+
+\subsection{Authors and Affiliations}
+Duplicate the template file by using the Save As command, and use the naming convention prescribed by your conference for the name of your paper. You are now ready to style your paper.
+% This template was designed for two affiliations.
+
+%\subsubsection{For author/s of only one affiliation (Heading 3)}
+%To change the default, adjust the template as follows.
+%\begin{compactenum}
+%\item Selection (Heading 4): Highlight all author and affiliation lines.
+%\item Change number of columns: Select Format > Columns > Presets > One Column. 
+%\item Deletion: Delete the author and affiliation lines for the second affiliation.
+%\item For author/s of more than two affiliations: To change the default, adjust the template as follows.
+%\item Selection: Highlight all author and affiliation lines.
+%\item Change number of columns: Select Format > Columns > Presets > One Column. 
+%\item Highlight author and affiliation lines of affiliation 1 and copy this selection.
+%\item Formatting: Insert one hard return immediately after the last character of the last affiliation line. Then paste the copy of affiliation 1. Repeat as necessary for each additional affiliation.
+%\item Reassign number of columns: Place your cursor to the right of the last character of the last affiliation line of an even numbered affiliation (e.\,g., if there are five affiliations, place your cursor at end of fourth affiliation). Drag the cursor up to highlight all of the above author and affiliation lines. Go to Format >  Columns and select “2 Columns”. If you have an odd number of affiliations, the final affiliation will be centered on the page; all previous will be in two columns.
+%\end{compactenum}
+
+\subsection{Identify the Headings}
+Headings, or heads, are organizational devices that guide the reader through your paper. There are two types: component heads and text heads.
+
+Component heads identify the different components of your paper and are not topically subordinate to each other. Examples include Acknowledgments and References. % and, for these, the correct style to use is “Heading 5”.
+Use “figure caption” for your Figure captions, and “table head” for your table title. Run-in heads, such as “Abstract”, will require you to apply a style (in this case, italic) in addition to the style provided by the drop down menu to differentiate the head from the text.
+
+Text heads organize the topics on a relational, hierarchical basis. For example, the paper title is the primary text head because all subsequent material relates and elaborates on this one topic. If there are two or more sub-topics, the next level head (uppercase Roman numerals) should be used and, conversely, if there are not at least two sub-topics, then no subheads should be introduced.
+%Styles named “Heading 1”, “Heading 2”, “Heading 3”, and “Heading 4” are prescribed.
+
+\subsection{Figures and Tables}
+
+\subsubsection{Positioning Figures and Tables}
+Place figures and tables at the top and bottom of columns. Avoid placing them in the middle of columns. Large figures and tables may span across both columns. Figure captions should be below the figures; table heads should appear above the tables. Insert figures and tables after they are cited in the text. Use the abbreviation “Fig.~1”, even at the beginning of a sentence.
+
+\begin{table}[htbp]
+\caption{Table Style Types}
+\renewcommand{\arraystretch}{1.5} % for the vertical padding
+\begin{tabular}{|l|l|l|l|}
+\hline
+Table & \multicolumn{3}{c|}{\textbf{Table Column Head}} \\ \cline{2-4}
+Head & \textbf{\emph{Table column subhead}}  & \textbf{\emph{Subhead}} & \textbf{\emph{Subhead}} \\ \hline
+copy & More table copy & ~ & ~ \\ \hline
+\end{tabular}
+\end{table}
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{example-image-golden}
+    \caption{Example of a ONE-COLUMN figure caption.}
+\end{figure}
+
+%\begin{figure*}[htbp]
+%    \centering
+%    \includegraphics[width=0.8\linewidth]{example-image-16x9}
+%    \caption{Example of a TWO-COLUMN figure caption.}
+%\end{figure*}
+
+Figure Labels: Use 8 point Times New Roman for Figure labels. Use words rather than symbols or abbreviations when writing Figure axis labels to avoid confusing the reader. As an example, write the quantity “Magnetization”, or “Magnetization, M”, not just “M”. If including units in the label, present them within parentheses. Do not label axes only with units. In the example, write “Magnetization (A/m)” or “Magnetization {A[m(1)]}”, not just “A/m”. Do not label axes with a ratio of quantities and units. For example, write “Temperature (K)”, not “Temperature/K”.
+
+Please see next page of this document for AN EXAMPLE of a 2-COLUMN Figure.
+
+\begin{figure*}[htb!]
+    \centering
+    \subfloat[Random caption 1]{\includegraphics[width=0.45\linewidth]{iaria-fig2-a}}\quad
+    \subfloat[Random caption 2]{\includegraphics[width=0.45\linewidth]{iaria-fig2-b}}
+    \caption{Example of a TWO-COLUMN figure caption: (a) this is the format for referencing parts of a figure.}
+\end{figure*}
+
+\subsection{Footnotes}
+Use footnotes sparingly (or not at all) and place them at the bottom of the column on the page on which they are referenced. Use Times 8-point type, single-spaced. To help your readers, avoid using footnotes altogether and include necessary peripheral observations in the text (within parentheses, if you prefer, as in this sentence).
+
+\section*{Acknowledgment}
+The preferred spelling of the word “acknowledgment” in America is without an “e” after the “g”. Avoid the stilted expression, “One of us (R.B.G.) thanks . . .”  Instead, try 
+“R.B.G. thanks”. Put applicable sponsor acknowledgments here; DO NOT place them on the first page of your paper or as a footnote.
+
+\section*{References}
+List and number all bibliographical references in 9-point Times, single-spaced, at the end of your paper. When referenced in the text, enclose the citation number in square brackets, for example \cite{eason1955certain}. Where appropriate, include the name(s) of editors of referenced books. The template will number citations consecutively within brackets \cite{eason1955certain}. The sentence punctuation follows the bracket \cite{maxwell1873treatise}. Refer simply to the reference number, as in \cite{jacobs1963fine}—do not use “Ref.\ \cite{jacobs1963fine}” or “reference \cite{jacobs1963fine}” except at the beginning of a sentence: “Reference \cite{jacobs1963fine} was the first \ldots”
+
+Number footnotes separately in superscripts. Place the actual footnote at the bottom of the column in which it was cited. Do not put footnotes in the reference list. Use letters for table footnotes.
+
+Unless there are six authors or more give all authors’ names; do not use “et al.”. Papers that have not been published, even if they have been submitted for publication, should be cited as “unpublished” \cite{four}. Papers that have been accepted for publication should be cited as “in press” \cite{five}. Capitalize only the first word in a paper title, except for proper nouns and element symbols.
+
+For papers published in translation journals, please give the English citation first, followed by the original foreign-language citation \cite{yorozu1987electron}.
+
+\nocite{kornack2001cell}
+\nocite{kito2013emergent}
+\nocite{goto2007efficient}
+
+
+% ======== References =========
+\vfill % To end last page and thus get bibliography "behind" subfigure example, only this allows pbalance to level columns at the last page correctly (but no other balance-package can handle this situation better than pbalance, either). % However, pbalance ist not compatible with arxiv.
+\begingroup
+\sloppy
+\printbibliography
+\endgroup 
+
+\end{document}
+
+

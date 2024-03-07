@@ -1,0 +1,8 @@
+*.cmd
+*.ps1
+*.ps
+*.zip
+*.lst
+*.tcp
+.*
+embedded.bib
