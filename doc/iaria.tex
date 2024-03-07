@@ -1,0 +1,120 @@
+%%
+%% Copyright 2023 Christoph P. Neumann
+%%
+%% This LaTeX class provides a simple interface for creating
+%% a verfy fancy Curriculum Vitae. At the moment only CVs in
+%% the german language are supported.
+%%
+%% This file is free property; as a special exception the author
+%% gives unlimited permission to copy and/or distribute it, with
+%% or without modifications, as long as this notice is
+%% preserved.
+%%
+%% This file is distributed in the hope that it will be useful,
+%% but WITHOUT ANY WARRANTY, to the extent permitted by law;
+%% without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE.
+
+\documentclass{ltxdoc}
+
+\CodelineNumbered
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\GetFileInfo{iaria.cls}
+
+\parskip1.0ex
+\parindent0.0ex
+
+\begin{document}
+\title{\textsf{iaria}\\
+An Unofficial IARIA LaTeX Class}
+\author{Christoph P.\ Neumann \texttt{$<$cyberpetaneuron@web.de$>$}}
+\maketitle
+\PrintChanges
+
+\begin{abstract}
+The \texttt{iaria}--class provides a convenient environment for writing IARIA scholary publications.
+This version also implements full IARIA specifications for citation style,
+which can only be templated for a specific technological combination like latex/pdflatex in combination with biblatex using a biber backend.
+\end{abstract}
+
+\section{Installation}
+
+The \texttt{zip} or \texttt{tar.gz} file comes with a \texttt{iaria.ins}
+and a \texttt{iaria.dtx} file included which contains the \LaTeX\ stuff.
+
+To extract the class files call:
+
+\begin{verbatim}
+  $ latex iaria.ins
+\end{verbatim}
+
+This call will extract all \LaTeX\ specific files to the current
+directory. You can either use the files for a single
+cv project or you can integrate the files into your \TeX\ installation.
+
+If you just want to use \textsf{iaria} for a single curriculum vitae
+project, the simplest way is just to copy the generated files to the
+folder of the project.
+
+If you want to integrate \textsf{iaria} into  your \TeX\ installation,
+create a directory \texttt{tex/latex/iaria} beneath your \TeX\ installation
+(e.g.~beneath \texttt{/usr/share/texmf}) and copy all files from the
+current directory there. Now call:
+
+\begin{verbatim}
+  $ mktexlsr
+\end{verbatim}
+
+to update the file--cache of \LaTeX.
+
+Hint: The \textsf{iaria} distribution contains a sample docstrip configuration
+in \texttt{docstrip.cfg} via which files can be distributed
+automatically to their correct positions inside a \LaTeX\ installation.
+Feel free to adapt this file to your environment and afterwards call
+\texttt{latex iaria.ins} to install the package to its right place.
+
+\section{Templates}
+
+For a quick start the \textsf{iaria-lite} distribution contains document
+templates.
+The templates can be found in the \texttt{iaria-example-neumann.zip} file.
+
+\section{Documentclass}
+
+\DescribeMacro{documentclass iaria}
+This package provides the documentclass \texttt{iaria}. The documentclass
+supports the following options:
+
+
+\begin{itemize}
+\item |conference| Passed to IEEEtran
+\item |a4paper|    Passed to IEEEtran
+\item |flushend|   Activate flushend package
+\item |pbalance|   Activate pbalance package
+\end{itemize}
+
+\section{Requirements}
+
+We instrument several other \LaTeX\ packages for different purposes,
+which must be available under your installation.
+
+\begin{itemize}
+\item IEEEtran
+\item biblatex
+\item extdash
+\item flushend
+\item fontenc
+\item graphicx
+\item hyperref
+\item inputenc
+\item orcidlink
+\item pbalance
+\item times
+\item url
+\item xcolor
+\item xpatch
+\end{itemize}
+
+\end{document}

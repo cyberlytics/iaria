@@ -1,0 +1,1 @@
+powershell.exe -ExecutionPolicy ByPass -noprofile -command "&{start-process powershell -ArgumentList '-ExecutionPolicy ByPass -noprofile -file \"%~dpn0.ps1\"' -verb RunAs}"
