@@ -6,7 +6,8 @@ DOC_PDF = build/doc/iaria.pdf
 TEMPLATE_PDFS = $(patsubst %.tex,build/doc/%.pdf,$(notdir $(wildcard static/iaria-example-neumann/*.tex)))
 LICENSE = build/dist/COPYING
 ARCHIVE = dist/iaria.zip
-LICENSE_TEXT = $(shell cat LICENSE)
+#LICENSE_TEXT = $(shell cat LICENSE)
+LICENSE_TEXT = LICENSEDUMMY
 
 VPATH = src
 
@@ -43,7 +44,7 @@ $(OBJ) : $(SRC) $(MAKEDTX)
 		-src "($(subst $() $(),|,$(SRC)))=>\1" \
 		-dir "src" \
 		-author "$(AUTHORS)" \
-		-date "2024-$(shell date +%Y)" \
+		-date "2023-$(shell date +%Y)" \
 		-setambles ".*=>\nopreamble" \
 		-doc "doc/iaria.tex" \
 		-preamble "$(LICENSE_TEXT)" \
