@@ -1,0 +1,19 @@
+name: Build
+on: [push]
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+      - name: Compile LaTeX document
+        uses: dante-ev/latex-action@edge
+        with:
+          root_file: doc/iaria.tex
+  make_dist:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout repo
+      uses: actions/checkout@v4
+    - name: build application
+      run: make dist

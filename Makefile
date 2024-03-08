@@ -1,11 +1,11 @@
 AUTHORS = $(shell head -1 LICENSE.txt |cut -d\  -f3-)
 
 SRC = $(notdir $(wildcard src/*))
-OBJ = build/obj/iaria-lite.ins build/obj/iaria-lite.dtx
-DOC_PDF = build/doc/iaria-lite.pdf
+OBJ = build/obj/iaria.ins build/obj/iaria.dtx
+DOC_PDF = build/doc/iaria.pdf
 TEMPLATE_PDFS = $(patsubst %.tex,build/doc/%.pdf,$(notdir $(wildcard static/template/*.tex)))
 LICENSE = build/dist/COPYING
-ARCHIVE = dist/iaria-lite.zip
+ARCHIVE = dist/iaria.zip
 LICENSE_TEXT = $(shell cat LICENSE.txt)
 
 VPATH = src
@@ -45,10 +45,10 @@ $(OBJ) : $(SRC) $(MAKEDTX)
 		-author "$(AUTHORS)" \
 		-date "2006-$(shell date +%Y)" \
 		-setambles ".*=>\nopreamble" \
-		-doc "doc/iaria-lite.tex" \
+		-doc "doc/iaria.tex" \
 		-preamble "$(LICENSE_TEXT)" \
-		iaria-lite
-	sed -e "$$(($$(wc -l < iaria-lite.ins)-1))r patch/msg.txt" iaria-lite.ins
+		iaria
+	sed -e "$$(($$(wc -l < iaria.ins)-1))r patch/msg.txt" iaria.ins
 	mv $(notdir $(OBJ)) build/obj
 
 # Build template PDFs
@@ -57,11 +57,11 @@ build/doc/%.pdf : static/template/%.tex
 	cp $< static/template/Makefile static/template/*.png build/doc
 	$(MAKE) -C build/doc $(notdir $@)
 
-# Build Documentation PDF from iaria-lite.dtx
-$(DOC_PDF) : build/obj/iaria-lite.dtx
+# Build Documentation PDF from iaria.dtx
+$(DOC_PDF) : build/obj/iaria.dtx
 	mkdir -p build/doc
 	cp $< build/doc
-	cd build/doc; $(LATEX) iaria-lite.dtx
+	cd build/doc; $(LATEX) iaria.dtx
 
 $(LICENSE) : LICENSE.txt
 	mkdir -p build/dist
