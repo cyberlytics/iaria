@@ -1,12 +1,12 @@
-AUTHORS = $(shell head -1 LICENSE.txt |cut -d\  -f3-)
+AUTHORS = $(shell head -1 LICENSE |cut -d\  -f3-)
 
 SRC = $(notdir $(wildcard src/*))
 OBJ = build/obj/iaria.ins build/obj/iaria.dtx
 DOC_PDF = build/doc/iaria.pdf
-TEMPLATE_PDFS = $(patsubst %.tex,build/doc/%.pdf,$(notdir $(wildcard static/template/*.tex)))
+TEMPLATE_PDFS = $(patsubst %.tex,build/doc/%.pdf,$(notdir $(wildcard static/iaria-example-neumann/*.tex)))
 LICENSE = build/dist/COPYING
 ARCHIVE = dist/iaria.zip
-LICENSE_TEXT = $(shell cat LICENSE.txt)
+LICENSE_TEXT = $(shell cat LICENSE)
 
 VPATH = src
 
@@ -43,7 +43,7 @@ $(OBJ) : $(SRC) $(MAKEDTX)
 		-src "($(subst $() $(),|,$(SRC)))=>\1" \
 		-dir "src" \
 		-author "$(AUTHORS)" \
-		-date "2006-$(shell date +%Y)" \
+		-date "2024-$(shell date +%Y)" \
 		-setambles ".*=>\nopreamble" \
 		-doc "doc/iaria.tex" \
 		-preamble "$(LICENSE_TEXT)" \
@@ -51,10 +51,10 @@ $(OBJ) : $(SRC) $(MAKEDTX)
 	sed -e "$$(($$(wc -l < iaria.ins)-1))r patch/msg.txt" iaria.ins
 	mv $(notdir $(OBJ)) build/obj
 
-# Build template PDFs
-build/doc/%.pdf : static/template/%.tex
+# Build iaria-example-neumann PDFs
+build/doc/%.pdf : static/iaria-example-neumann/%.tex
 	mkdir -p build/doc
-	cp $< static/template/Makefile static/template/*.png build/doc
+	cp $< static/iaria-example-neumann/Makefile static/iaria-example-neumann/*.cls build/doc
 	$(MAKE) -C build/doc $(notdir $@)
 
 # Build Documentation PDF from iaria.dtx
@@ -63,7 +63,7 @@ $(DOC_PDF) : build/obj/iaria.dtx
 	cp $< build/doc
 	cd build/doc; $(LATEX) iaria.dtx
 
-$(LICENSE) : LICENSE.txt
+$(LICENSE) : LICENSE
 	mkdir -p build/dist
 	cp $^ $@
 

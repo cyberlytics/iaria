@@ -1,0 +1,1 @@
+    - echo "Hello, $GITLAB_USER_LOGIN!"  
