@@ -3,7 +3,7 @@ AUTHORS = $(shell head -1 LICENSE |cut -d\  -f3-)
 SRC = $(notdir $(wildcard src/*))
 OBJ = build/obj/iaria.ins build/obj/iaria.dtx
 DOC_PDF = build/doc/iaria.pdf
-LICENSE = build/dist/COPYING
+LICENSE = build/dist/iaria/COPYING
 ARCHIVE = dist/iaria.zip
 LICENSE_TEXT = $(shell cat LICENSE)
 
@@ -22,11 +22,15 @@ compile: $(OBJ) $(DOC_PDF)
 dist : $(ARCHIVE)
 
 $(ARCHIVE) : $(OBJ) $(DOC_PDF) $(LICENSE)
-	mkdir -p build/dist
-	cp -r static/* build/dist
-	cd build/dist; unzip -o *.zip -d "template"
-	rm build/dist/*.zip
-	cp $(OBJ) $(DOC_PDF) build/dist
+	mkdir -p build/dist/iaria
+	cp -r static/* build/dist/iaria
+	cd build/dist/iaria; unzip -o *.zip -d "template"
+	rm build/dist/iaria/*.zip
+	cp $(OBJ) $(DOC_PDF) build/dist/iaria
+	chmod -R -x+X build/dist
+	echo "== check files: falsely marked as executable? =="
+	ls -l build/dist/iaria/*
+	echo "== /check files =="
 	mkdir -p dist
 	cd build/dist; zip -r ../../$@ *
 
@@ -59,7 +63,7 @@ $(DOC_PDF) : build/obj/iaria.dtx
 	cd build/doc; $(LATEXMK) iaria.dtx
 
 $(LICENSE) : LICENSE
-	mkdir -p build/dist
+	mkdir -p build/dist/iaria
 	cp $^ $@
 
 clean:

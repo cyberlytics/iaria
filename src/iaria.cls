@@ -26,7 +26,7 @@
 \NeedsTeXFormat{LaTeX2e}
 
 % Provide the name of your document class, the date it was last updated, and a comment about what it's used for
-\ProvidesClass{iaria}[2023/01/01 unofficial IARIA conference template]
+\ProvidesClass{iaria}[2024/03/20 unofficial IARIA conference template v0.1]
 
 % Define marker counter for options (counter are global in latex):
 \newcounter{iaria@pbalancetracker}

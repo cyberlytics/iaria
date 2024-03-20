@@ -4,5 +4,7 @@
 *.zip
 *.lst
 *.tcp
+*.cls
+*.bbl
 .*
 embedded.bib
