@@ -3,7 +3,7 @@
 
 This repository hosts the source code for the [CTAN](https://ctan.org/) package [IARIA](https://ctan.org/pkg/iaria).
 
-The package enhances a LaTeX installation with a LaTeX class for writing IARIA scholary publications.
+The IARIA package enhances a LaTeX installation with a LaTeX class for writing IARIA scholary publications.
 This version implements IARIA specifications for citation style, which can only be templated for a specific technological combination like latex/pdflatex in combination with biblatex using a biber backend.
 
 DISCLAIMER: This class is neither for XeLaTeX or LuaTeX nor for legacy bibtex or natbib.
@@ -55,7 +55,7 @@ All build artifacts can be found in `build`. The `Makefile` builds the following
 
 * `iaria.ins` and `iaria.dtx` which contains the LaTeX installation package and the documentation source.
 * `iaria.pdf` the documentation of the class
-* `CV-template_*.pdf` PDF files of the IARIA template documents
+* `*-example-*.zip` include TEX+PDF example based on this class
 
 ## Build dependencies
 
