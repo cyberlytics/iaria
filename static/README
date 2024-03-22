@@ -40,11 +40,28 @@ Call:
 
   mktexlsr
 
+
 Templates
 ---------
 
-In template.zip document templates for a german and an english CV can be 
-found. Just unzip the template.zip, cd to template and run make to get the
-pdf.
+In the template directory you can find an example document.
+
+
+Source Code
+-----------
+
+The source code of this latex package can be found at:
+https://github.com/cyberlytics/iaria
+
+The build that creates the CTAN-conforming upload ZIP archive
+can be achieved with the Docker image at Dockerhub:
+cyberlytics/ctan-prep:latest
+
+An examplery 'make dist' call is:
+docker run --rm -it -v ${PWD}/:/app cyberlytics/ctan-prep:latest make dist
+
+The source code of this supportive Docker image can be found at:
+https://github.com/cyberlytics/ctan-prep
+
 
 /Christoph P. Neumann, <cyberpetaneuron+iaria@gmail.com>
