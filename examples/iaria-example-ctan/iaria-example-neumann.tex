@@ -1,19 +1,23 @@
 \PassOptionsToPackage{cmyk,table}{xcolor}
-\documentclass[conference,flushend]{iaria}
+\documentclass[conference]{iaria}
 \pdfoutput=1 % pdflatex hint for arxiv.org (within first 5 lines)
 
-% en-US  = [english]/[american]/[USenglish] (+ [canadian])   <DEFAULT>
+% en-US  = [english]/[american]/[USenglish] <DEFAULT>
 \usepackage[babel=true,english=american]{csquotes}
-\usepackage[USenglish]{babel}
-% en-UK  =           [british] /[UKenglish] (+ [australian]) <OXFORD>
+\usepackage[english]{babel} % en-US
+% IARIA requires uppercase TABLE, and babel intervenes in the tablename
+\addto\captionsenglish{\renewcommand\tablename{TABLE}}
+% en-UK  =           [british] /[UKenglish] <OXFORD>
 %\usepackage[babel=true,english=british]{csquotes}
-%\usepackage[UKenglish]{babel}
+%\usepackage[british]{babel} % en-UK
+%% IARIA requires uppercase TABLE, and babel intervenes in the tablename
+%\addto\captionsbritish{\renewcommand\tablename{TABLE}}
 
 % Allows to hyphenate a word that contains a dash:
 % https://stackoverflow.com/questions/2193307/how-do-i-get-latex-to-hyphenate-a-word-that-contains-a-dash
 \usepackage[shortcuts]{extdash} % Use \-/ for a breakable dash that does not prevent the remainer of the word to be hyphenated
 
-\usepackage{paralist}
+\usepackage[alwaysadjust]{paralist}
 \usepackage[caption=false,font=footnotesize]{subfig}
 
 % Class iaria.cls loads biblatex / biber with predefined options
@@ -31,41 +35,41 @@ final % Always enable microtype, even if in draft mode. This helps finding bad b
 
 
 \begin{filecontents}[overwrite]{embedded.bib}
-	@online{ieee2015howto,
-		author = {Michael Shell},
-		title = {How to Use the {IEEEtran} \LaTeX\ Class},
-		url = {http://mirrors.ctan.org/macros/latex/contrib/IEEEtran/IEEEtran_HOWTO.pdf},
-		year = {2015}
-	}
-	@online{ieee2018formattingrules,
-		author = {{IEEE}},
-		title = {Conference Template and Formatting Specifications},
-		url = {https://www.ieee.org/content/dam/ieee-org/ieee/web/org/conferences/Conference-template-A4.doc},
-		year = {2018}
-	}
-	@online{iaria2014formattingrules,
-		author = {{IARIA}},
-		title = {Formatting Rules},
-		url = {http://www.iaria.org/formatting.doc},
-		year = {2014}
-	}
-	@online{iaria2009editorialrules,
-		_author = {Cosmin Dini},
-		author = {{IARIA}},
-		title = {Editorial Rules},
-		url = {https://www.iaria.org/editorialrules.html},
-		year = {2009}
-	}
-	@online{languagetool,
-		author = {{LanguageTooler GmbH}},
-		title  = {{LangueTool}},
-		url    = {https://languagetool.org/overleaf}
-	}
-	@online{overleaf,
-		author = {{Digital Science UK Limited}},
-		title  = {{Overleaf}},
-		url    = {https://www.overleaf.com}
-	}
+@online{ieee2015howto,
+    author = {Michael Shell},
+    title = {How to Use the {IEEEtran} \LaTeX\ Class},
+    url = {http://mirrors.ctan.org/macros/latex/contrib/IEEEtran/IEEEtran_HOWTO.pdf},
+    year = {2015}
+}
+@online{ieee2018formattingrules,
+    author = {{IEEE}},
+    title = {Conference Template and Formatting Specifications},
+    url = {https://www.ieee.org/content/dam/ieee-org/ieee/web/org/conferences/Conference-template-A4.doc},
+    year = {2018}
+}
+@online{iaria2014formattingrules,
+    author = {{IARIA}},
+    title = {Formatting Rules},
+    url = {http://www.iaria.org/formatting.doc},
+    year = {2014}
+}
+@online{iaria2009editorialrules,
+    _author = {Cosmin Dini},
+    author = {{IARIA}},
+    title = {Editorial Rules},
+    url = {https://www.iaria.org/editorialrules.html},
+    year = {2009}
+}
+@online{languagetool,
+    author = {{LanguageTooler GmbH}},
+    title  = {{LangueTool}},
+    url    = {https://languagetool.org/overleaf}
+}
+@online{overleaf,
+    author = {{Digital Science UK Limited}},
+    title  = {{Overleaf}},
+    url    = {https://www.overleaf.com}
+}
 \end{filecontents}
 
 \usepackage{fontawesome} % i.a., \faWarning{}
@@ -78,128 +82,130 @@ final % Always enable microtype, even if in draft mode. This helps finding bad b
 % https://www.hyphenation24.com/
 \hyphenation{block-chain block-chains Ethe-re-um}
 
-\title{The Unofficial \textsmaller{IARIA} \LaTeX{} Class Paper Example (v2024-03)}
+% Capitalization: https://capitalizemytitle.com/style/Chicago/
+\title{The Unofficial \textsmaller{IARIA} \LaTeX{} Class Paper Example (v2024-05)}
 
 \author{
-	\IEEEauthorblockN{Christoph P.\ Neumann\,\orcidlink{0000-0002-5936-631X}}
-	\IEEEauthorblockA{%
-		Department of Electrical Engineering, Media, and Computer Science\\
-		Ostbayerische Technische Hochschule Amberg-Weiden\\
-		Amberg, Germany\\
-		% Diferring from IEEE ("Email"), IARIA requires "e-mail":
-		e-mail: \texttt{c.neumann@oth-aw.de}
-		% Multiple authors and their e-mail addresses:
-		%e-mail: {\tt$\lbrace$j.smith\,|\,c.neumann$\rbrace$@oth-aw.de}
-	}
+    \IEEEauthorblockN{Christoph P.\ Neumann\,\orcidlink{0000-0002-5936-631X}}
+    \IEEEauthorblockA{%
+        Department of Electrical Engineering, Media, and Computer Science\\
+        Ostbayerische Technische Hochschule Amberg-Weiden\\
+        Amberg, Germany\\
+        % Diferring from IEEE ("Email"), IARIA requires "e-mail":
+        e-mail: \texttt{c.neumann@oth-aw.de}
+        % Multiple authors and their e-mail addresses:
+        %e-mail: {\tt$\lbrace$j.smith\,|\,c.neumann$\rbrace$@oth-aw.de}
+    }
 }
 
 \begin{document}
-	
-	\maketitle
-	
-	\begin{abstract}
-		\lipsum[1][3-12]
-	\end{abstract}
-	
-	% A list of IEEE Computer Society appoved keywords can be obtained at
-	% http://www.computer.org/mc/keywords/keywords.htm
-	\begin{IEEEkeywords}
-		% Diferring from IEEE, IARIA requires also the keywords in Bold and Italic (and lower case):
-		\textbf{\textit{template; lorem ipsum.}}
-	\end{IEEEkeywords}
-	
-	\section{Introduction}
-	
-	The \textsmaller{IARIA} formatting is based on \textsmaller{IEEE} style.
-	The unofficial \textsmaller{IARIA} \LaTeX\ class is based on \textsmaller{IEEE}tran class \cite{ieee2015howto}.
-	The \textsmaller{IARIA} formatting rules \cite{iaria2014formattingrules} are adopted from the \textsmaller{IEEE} template and formatting specifications \cite{ieee2018formattingrules}.
-	In addition, be aware of the supplementary \textsmaller{IARIA} editorial rules \cite{iaria2009editorialrules} \faWarning{} that provide a beginner-friendly set of further advices.
-	It is recommended to use a grammar tool, e.\,g., the LanguageTool \cite{languagetool} browser plugin in combination with Overleaf \cite{overleaf}.
-	
-	\lipsum[2]
-	
-	\{\faWarning{} \textsmaller{IARIA} editorial rules: Introduction must end with a paragraph describing the structure of the paper!\}
-	The remainder of the paper is organized as follows: In Section~II, …
-	
-	\section{Related work \textbar{} Methods}
-	\lipsum[3]
-	
-	\section{Results}
-	\lipsum[4]
-	
-	\section{Discussion \textbar{} Evalution}
-	\lipsum[5]
-	
-	\section{Conclusion and Future Work}
-	\{\faWarning{} \textsmaller{IARIA} editorial rules: Last section must be \textquote{Conclusion and Future Work}!\}
-	\lipsum[6]
-	
-	
-	
-	%%% Advisor
-	\nocite{StNe23foodfresh}
-	
-	%%% First-Author
-	\nocite{NeLe13adhocCoop}
-	\nocite{Neumann2012lni}
-	\nocite{NeLe12alphaFlow}
-	\nocite{NeHL12hydra}
-	\nocite{NeWL12offsync}
-	\nocite{NSWL11alphaadaptive}
-	\nocite{NeFL10oxdbs}
-	\nocite{NeLe10alphaUC}
-	\nocite{NeLe09alphaflow}
-	\nocite{NeLe09dmps}
-	\nocite{NHSL09oxdbs} % DE
-	\nocite{NeWL09xdsrig} % DE
-	\nocite{NRDL09deus}
-	
-	%%% Co-Authorship
-	\nocite{LeNe24vocattllm}
-	\nocite{PANP23seccloudfogai}
-	\nocite{WaNe12alphaoffsync}
-	\nocite{ToNe11alphaprops}
-	\nocite{FDI+10esmmog}
-	\nocite{JBN+10fcmdb}
-	\nocite{ILN+09semrttx}
-	\nocite{IND+09lzatav} % DE
-	\nocite{MeNe04testejb}
-	
-	%%% Monographic Work
-	\nocite{Neumann2013dissBook}
-	\nocite{Neumann2012dissPreprint}
-	\nocite{neumann2005da}
-	\nocite{neumann2004sa}
-	
-	%%% TechRep / Non-Peer-Reviewed
-	
-	\nocite{SaNe24othfb}
-	
-	\nocite{ModA-TR-2023SS-WAE-TeamWeiss-Neunerln}
-	\nocite{ModA-TR-2023SS-BDCC-TeamRot-CompVisPipeline}
-	\nocite{ModA-TR-2023SS-BDCC-TeamBlau-NauticalNonsense}
-	\nocite{ModA-TR-2023SS-BCN-TeamGruen-TorpedoTactics}
-	\nocite{ModA-TR-2023SS-BCN-TeamCyan-Stockbird}
-	\nocite{ModA-TR-2023SS-BCN-TeamBlau-FancyChess}
-	\nocite{ModA-TR-2023WS-SWT-TeamRot-SGDb}
-	\nocite{ModA-TR-2023WS-SWT-TeamGruen-OPCUANetzwerk}
-	\nocite{ModA-TR-2022SS-WAE-TeamWeiss-WoIstMeinGeld}
-	\nocite{ModA-TR-2022SS-BDCC-TeamWeiss-TwitterDash}
-	\nocite{ModA-TR-2022SS-BDCC-TeamRot-Reddiment}
-	\nocite{ModA-TR-2022SS-BDCC-TeamGruen-ExplosionGuy}
-	\nocite{ModA-TR-2022SS-BDCC-TeamCyan-OTHWiki}
-	\nocite{ModA-TR-2022WS-SWT-TeamGruen-Graphvio}
-	\nocite{ModA-TR-2021SS-WAE-TeamWeiss-CovidDashboard}
-	\nocite{ModA-TR-2021SS-WAE-TeamRot-FireForceDefense}
-	\nocite{ModA-TR-2021SS-WAE-TeamGruen-MedPlanner}
-	
-	\nocite{NeRL12deus}
-	\nocite{LNR+11egr}
-	
-	% ======== References =========
-	\begingroup
-	\sloppy
-	\printbibliography
-	\endgroup 
-	
+
+\maketitle
+
+\begin{abstract}
+    \lipsum[1][3-12]
+\end{abstract}
+
+% A list of IEEE Computer Society appoved keywords can be obtained at
+% http://www.computer.org/mc/keywords/keywords.htm
+\begin{IEEEkeywords}
+    % Diferring from IEEE, IARIA requires also the keywords in Bold and Italic (and lower case):
+    template; lorem ipsum.
+\end{IEEEkeywords}
+
+\section{Introduction}
+
+The \textsmaller{IARIA} formatting is based on \textsmaller{IEEE} style.
+The unofficial \textsmaller{IARIA} \LaTeX\ class is based on \textsmaller{IEEE}tran class \cite{ieee2015howto}.
+The \textsmaller{IARIA} formatting rules \cite{iaria2014formattingrules} are adopted from the \textsmaller{IEEE} template and formatting specifications \cite{ieee2018formattingrules}.
+In addition, be aware of the supplementary \textsmaller{IARIA} editorial rules \cite{iaria2009editorialrules} \faWarning{} that provide a beginner-friendly set of further advices.
+It is recommended to use a grammar tool, e.\,g., the LanguageTool \cite{languagetool} browser plugin in combination with Overleaf \cite{overleaf}.
+
+\lipsum[2]
+
+\{\faWarning{} \textsmaller{IARIA} editorial rules: Introduction must end with a paragraph describing the structure of the paper!\}
+The remainder of the paper is organized as follows: In Section~II, …
+
+\section{Related work \textbar{} Methods}
+\lipsum[3]
+
+\section{Results}
+\lipsum[4]
+
+\section{Discussion \textbar{} Evalution}
+\lipsum[5]
+
+\section{Conclusion and Future Work}
+\{\faWarning{} \textsmaller{IARIA} editorial rules: Last section must be \textquote{Conclusion and Future Work}!\}
+\lipsum[6]
+
+
+
+%%% Advisor
+\nocite{StNe23foodfresh}
+
+%%% First-Author
+\nocite{NeLe13adhocCoop}
+\nocite{Neumann2012lni}
+\nocite{NeLe12alphaFlow}
+\nocite{NeHL12hydra}
+\nocite{NeWL12offsync}
+\nocite{NSWL11alphaadaptive}
+\nocite{NeFL10oxdbs}
+\nocite{NeLe10alphaUC}
+\nocite{NeLe09alphaflow}
+\nocite{NeLe09dmps}
+\nocite{NHSL09oxdbs} % DE
+\nocite{NeWL09xdsrig} % DE
+\nocite{NRDL09deus}
+
+%%% Co-Authorship
+\nocite{LeNe24vocattllm}
+\nocite{PANP23seccloudfogai}
+\nocite{WaNe12alphaoffsync}
+\nocite{ToNe11alphaprops}
+\nocite{FDI+10esmmog}
+\nocite{JBN+10fcmdb}
+\nocite{ILN+09semrttx}
+\nocite{IND+09lzatav} % DE
+\nocite{MeNe04testejb}
+
+%%% Monographic Work
+\nocite{Neumann2013dissBook}
+\nocite{Neumann2012dissPreprint}
+\nocite{neumann2005da}
+\nocite{neumann2004sa}
+
+%%% TechRep / Non-Peer-Reviewed
+
+\nocite{StNe24kosmosis-TR}
+\nocite{SaNe24othfb}
+
+\nocite{ModA-TR-2023SS-WAE-TeamWeiss-Neunerln}
+\nocite{ModA-TR-2023SS-BDCC-TeamRot-CompVisPipeline}
+\nocite{ModA-TR-2023SS-BDCC-TeamBlau-NauticalNonsense}
+\nocite{ModA-TR-2023SS-BCN-TeamGruen-TorpedoTactics}
+\nocite{ModA-TR-2023SS-BCN-TeamCyan-Stockbird}
+\nocite{ModA-TR-2023SS-BCN-TeamBlau-FancyChess}
+\nocite{ModA-TR-2023WS-SWT-TeamRot-SGDb}
+\nocite{ModA-TR-2023WS-SWT-TeamGruen-OPCUANetzwerk}
+\nocite{ModA-TR-2022SS-WAE-TeamWeiss-WoIstMeinGeld}
+\nocite{ModA-TR-2022SS-BDCC-TeamWeiss-TwitterDash}
+\nocite{ModA-TR-2022SS-BDCC-TeamRot-Reddiment}
+\nocite{ModA-TR-2022SS-BDCC-TeamGruen-ExplosionGuy}
+\nocite{ModA-TR-2022SS-BDCC-TeamCyan-OTHWiki}
+\nocite{ModA-TR-2022WS-SWT-TeamGruen-Graphvio}
+\nocite{ModA-TR-2021SS-WAE-TeamWeiss-CovidDashboard}
+\nocite{ModA-TR-2021SS-WAE-TeamRot-FireForceDefense}
+\nocite{ModA-TR-2021SS-WAE-TeamGruen-MedPlanner}
+
+\nocite{NeRL12deus}
+\nocite{LNR+11egr}
+
+% ======== References =========
+\begingroup
+\sloppy
+\printbibliography
+\endgroup 
+
 \end{document}

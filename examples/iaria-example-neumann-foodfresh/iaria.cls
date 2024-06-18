@@ -26,7 +26,7 @@
 \NeedsTeXFormat{LaTeX2e}
 
 % Provide the name of your document class, the date it was last updated, and a comment about what it's used for
-\ProvidesClass{iaria}[2024/03/20 unofficial IARIA conference template v0.1]
+\ProvidesClass{iaria}[2024/05/04 unofficial IARIA conference template v0.3]
 
 % Define marker counter for options (counter are global in latex):
 \newcounter{iaria@pbalancetracker}
@@ -79,7 +79,15 @@
 % Diferring from IEEE, IARIA requires 
 % in bibliography: 6+ authors as first author et al.
 % in \citeauthor: any case of et al. with just first author et al.
-\RequirePackage[style=ieee, backend=biber, url=false, hyperref, maxnames=5, minnames=1, maxcitenames=2, mincitenames=1]{biblatex}
+\RequirePackage[defernumbers=true,style=ieee, backend=biber, url=false, hyperref, maxnames=5, minnames=1, maxcitenames=2, mincitenames=1]{biblatex}
+
+% Due to applied option defernumbers=true:
+% Prevent citations in the references are being numbered as '0' in ArXiv
+% https://tex.stackexchange.com/questions/463556/all-the-citations-in-the-references-are-being-numbered-as-0-in-arxiv-while-upl
+\makeatletter
+\let\blx@rerun@biber\relax
+\makeatother
+
 \renewcommand*{\bibfont}{\small}
 
 % Diferring from IEEE, IARIA requires, for ONLINE entries, no  point but a comma between author and title:
@@ -129,6 +137,10 @@
 % Diferring from IEEE, IARIA requires a hyphen after "Keywords" instead of an  emdash:
 \xpatchcmd\IEEEkeywords{---}{-}{}{}
 
+% Diferring from IEEE, IARIA requires also the keywords in Italic (and Bold)(and lower case!):
+\let\oldIEEEkeywords\IEEEkeywords
+\def\IEEEkeywords{\oldIEEEkeywords\itshape\ignorespaces}
+
 \makeatletter
 \renewcommand{\IEEEauthorblockN}[1]{%
 % copied from IEEEtran.cls:
@@ -146,6 +158,19 @@
     #1%
     % end the row if the user did not already
     \crcr}
+\makeatother
+
+% IARIA subfigure captions require this:
+\RequirePackage[caption=false,font=footnotesize]{subfig}
+
+% IARIA requires to bring the table caption in the same line of "Table I"
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\@makecaption}
+  {\\}
+  {.\ }
+  {}
+  {}
 \makeatother
 
 % Allows to hyphenate a word that contains a dash:

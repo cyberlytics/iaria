@@ -1,15 +1,19 @@
 \PassOptionsToPackage{cmyk,table}{xcolor}
-\documentclass[conference,flushend]{iaria}
+\documentclass[conference]{iaria}
 \pdfoutput=1 % pdflatex hint for arxiv.org (within first 5 lines)
 
-% en-US  = [english]/[american]/[usenglish] (+ [canadian])   <DEFAULT>
+% en-US  = [english]/[american]/[USenglish] <DEFAULT>
 \usepackage[babel=true,english=american]{csquotes}
-\usepackage[usenglish]{babel}
-% en-UK  =           [british] /[ukenglish] (+ [australian]) <OXFORD>
+\usepackage[english]{babel} % en-US
+% IARIA requires uppercase TABLE, and babel intervenes in the tablename
+\addto\captionsenglish{\renewcommand\tablename{TABLE}}
+% en-UK  =           [british] /[UKenglish] <OXFORD>
 %\usepackage[babel=true,english=british]{csquotes}
-%\usepackage[ukenglish]{babel}
+%\usepackage[british]{babel} % en-UK
+%% IARIA requires uppercase TABLE, and babel intervenes in the tablename
+%\addto\captionsbritish{\renewcommand\tablename{TABLE}}
 
-\usepackage{paralist}
+\usepackage[alwaysadjust]{paralist}
 \usepackage[caption=false,font=footnotesize]{subfig}
 
 % Class iaria.cls loads biblatex / biber with predefined options
@@ -25,6 +29,7 @@
         % In the standard configuration, this template is always in the final mode, so this option only makes a difference if "pros" use the draft mode
 ]{microtype}
 
+% Capitalization: https://capitalizemytitle.com/style/Chicago/
 \title{FoodFresh: Multi-Chain Design for an Inter-Institutional\\Food Supply Chain Network}
 
 \author{
@@ -38,12 +43,12 @@
     }
 }
 
-\usepackage[nolist]{acronym}
+\usepackage[nolist,smaller]{acronym}
 
 \begin{acronym}
 \acro{babe}[BABE]{Blind Assignment of Blockchain Extension}
 \acro{fscn}[FSCN]{Food Supply Chain Network}
-\acro{grandpa}[GRANDPA]{GHOST-based Recursive Ancestor Deriving Prefix Agreement}
+\acro{grandpa}[GRANDPA]{\textsmaller{GHOST}-based Recursive Ancestor Deriving Prefix Agreement}
 \acro{gui}[GUI]{Graphical User Interface}
 \acro{ide}[IDE]{Integrated Development Environment}
 \acro{ocw}[OCW]{Off-Chain Worker}
@@ -79,14 +84,13 @@ Mechanisms for enabling blockchain interoperability help to preserve the benefit
 % A list of IEEE Computer Society appoved keywords can be obtained at
 % http://www.computer.org/mc/keywords/keywords.htm
 \begin{IEEEkeywords}
-    % Diferring from IEEE, IARIA requires also the keywords in Bold and Italic (and lower case):
-    \textbf{\textit{blockchain; consortium; supply chain network; controlled transparency; interoperability.}}
+    blockchain; consortium; supply chain network; controlled transparency; interoperability.
 \end{IEEEkeywords}
 
 \section{Introduction} \label{s:introduction}
 The food industry comprises companies dedicated to manufacturing and processing raw materials and semi-finished products from agriculture, forestry, and fishing. In recent years, food supply chains have progressed from shorter, independent to more unified, coherent relationships among supply chain participants \cite{bourlakis2008food}. Developing long-term, and collaborative relationships requires evolutionary technological solutions to simultaneously retain a competitive edge. 
 
-Blockchain technology is considered a way to increase supply chain visibility, support fraud detection and provide supply chain optimization. Current applications of blockchain technology in food supply chain management, e.g., IBM Food Trust \cite{ibmFoodTrust2019}, rely mainly on a single distributed ledger. The implications on supply chain networks are twofold: (i) organizations participating in multiple supply chains must share their data on multiple blockchains, and (ii) participants may see information originally not intended for them because all participants can view every transaction on a distributed ledger. In a single-chain approach with just one ledger, all data would be shared publicly will all other chain participants.
+Blockchain technology is considered a way to increase supply chain visibility, support fraud detection and provide supply chain optimization. Current applications of blockchain technology in food supply chain management, e.g., \textsmaller{IBM} Food Trust \cite{ibmFoodTrust2019}, rely mainly on a single distributed ledger. The implications on supply chain networks are twofold: (i) organizations participating in multiple supply chains must share their data on multiple blockchains, and (ii) participants may see information originally not intended for them because all participants can view every transaction on a distributed ledger. In a single-chain approach with just one ledger, all data would be shared publicly will all other chain participants.
 
 The multi-chain requirement is motivated by achieving controlled transparency, i.e., to enable all parties to control visibility of data based on two levels of chains. Each participant is provided with a chain of type \emph{permissioned}, and sharing data is provided by an additional chain of type \emph{public}. The permissioned chains are subject to a \ac{rbac} mechanism, thus, its information is hidden from the public and accessible to all users that belong to an organization. Providing organizations each with their own permissioned chain, interconnecting them as a federated ecosystem with a public chain also simplifies the addition or removal of individual organizations from the overall ecosystem with minimal impact.
 
@@ -116,8 +120,8 @@ In a \ac{fscn}, more than one supply chain and more than one business process ca
 \begin{figure}[ht]
     \centering
     \includegraphics[page=1,scale=0.23]{fig-fscn}
-	\caption{Schematic diagram of an \ac{fscn} (based on \citeauthor{van2005innovations}~\cite{van2005innovations})}
-	\label{fig:food_supply_network}
+    \caption{Schematic diagram of an \ac{fscn} (based on \citeauthor{van2005innovations}~\cite{van2005innovations})}
+    \label{fig:food_supply_network}
 \end{figure}
 
 \subsection{Blockchain Types} \label{s:blockchain_types}
@@ -167,7 +171,7 @@ The application tier encompasses application-specific blockchains (the parachain
   \centering
   \includegraphics[width=0.91\textheight,angle=90,origin=c]{fig-approach_overview_edit.pdf}
   \caption{Overview of our approach. The architecture is composed of three tiers: presentation, application, and relay. }
-	\label{fig:system_architecture}
+    \label{fig:system_architecture}
 \end{figure*}
 
 \subsubsection{Relay Tier} \label{s:relay_tier}
@@ -214,7 +218,7 @@ Our plans will focus on capturing the variability of transfer volume in cross-ch
 
 \section{Conclusion and Future Work} \label{s:conclusion}
 Developing long-term and increasingly collaborative relationships among supply chain participants requires advanced technological solutions to retain a competitive edge. Blockchain is presented as a promising technology that might increase supply chain visibility and improve efficiency.  We have presented FoodFresh -- a multi-chain consortium for an inter-institutional food supply chain network. 
-This approach overcomes the challenges associated with current approaches (e.g., IBM Food Trust), such as lack of controlled transparency and restricted interoperability among supply chain participants. By implementing a multi-chain consortium with an overseeing decentralized hub, FoodFresh allows organizations to maintain their independent blockchains, thereby preserving data sovereignty and enabling effective data exchange across blockchain boundaries. 
+This approach overcomes the challenges associated with current approaches (e.g., \textsmaller{IBM} Food Trust), such as lack of controlled transparency and restricted interoperability among supply chain participants. By implementing a multi-chain consortium with an overseeing decentralized hub, FoodFresh allows organizations to maintain their independent blockchains, thereby preserving data sovereignty and enabling effective data exchange across blockchain boundaries. 
 The design approach used for FoodFresh could apply to other networks that require the distribution or transfer of sensitive data. Future work could apply the approach to other industries, for instance, healthcare. The safe and secure transfer of patient health records or other sensitive information between healthcare providers, insurance companies, and the patients themselves is a major concern in the healthcare industry. The presented approach could allow each party to maintain control over their data while enabling necessary data sharing.
 
 

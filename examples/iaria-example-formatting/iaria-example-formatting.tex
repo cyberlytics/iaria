@@ -2,15 +2,18 @@
 \documentclass[conference,pbalance]{iaria}
 \pdfoutput=1 % pdflatex hint for arxiv.org (within first 5 lines)
 
-% en-US  = [english]/[american]/[usenglish] (+ [canadian])   <DEFAULT>
+% en-US  = [english]/[american]/[USenglish] <DEFAULT>
 \usepackage[babel=true,english=american]{csquotes}
-\usepackage[usenglish]{babel}
-% en-UK  =           [british] /[ukenglish] (+ [australian]) <OXFORD>
+\usepackage[english]{babel} % en-US
+% IARIA requires uppercase TABLE, and babel intervenes in the tablename
+\addto\captionsenglish{\renewcommand\tablename{TABLE}}
+% en-UK  =           [british] /[UKenglish] <OXFORD>
 %\usepackage[babel=true,english=british]{csquotes}
-%\usepackage[ukenglish]{babel}
+%\usepackage[british]{babel} % en-UK
+%% IARIA requires uppercase TABLE, and babel intervenes in the tablename
+%\addto\captionsbritish{\renewcommand\tablename{TABLE}}
 
-\usepackage{paralist}
-\usepackage[caption=false,font=footnotesize]{subfig}
+\usepackage[alwaysadjust]{paralist}
 
 % Class iaria.cls loads biblatex / biber with predefined options
 \addbibresource{embedded.bib}
@@ -141,6 +144,7 @@
 }
 \end{filecontents}
 
+% Capitalization: https://capitalizemytitle.com/style/Chicago/
 \title{Paper Title}
 
 \author{
@@ -159,18 +163,17 @@
 \hyphenation{block-chain block-chains Ethe-re-um}
 
 \begin{document}
-    
+
 \maketitle
 
 \begin{abstract}
-    This electronic document is a “live” template. The various components of your paper [title, text, heads, etc.] are already defined on the style sheet, as illustrated by the portions given in this document. DO NOT USE SPECIAL CHARACTERS, SYMBOLS, OR MATH IN YOUR TITLE OR ABSTRACT.
+This electronic document is a “live” template. The various components of your paper [title, text, heads, etc.] are already defined on the style sheet, as illustrated by the portions given in this document. DO NOT USE SPECIAL CHARACTERS, SYMBOLS, OR MATH IN YOUR TITLE OR ABSTRACT.
 \end{abstract}
 
 % A list of IEEE Computer Society appoved keywords can be obtained at
 % http://www.computer.org/mc/keywords/keywords.htm
 \begin{IEEEkeywords}
-    % Diferring from IEEE, IARIA requires also the keywords in Bold and Italic (and lower case):
-    \textbf{\textit{component; formatting; style; styling; insert (key words).}}
+component; formatting; style; styling; insert (key words).
 \end{IEEEkeywords}
 
 \section{Introduction (Heading 1)}
