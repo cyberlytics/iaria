@@ -1,5 +1,5 @@
 \PassOptionsToPackage{cmyk,table}{xcolor}
-\documentclass[conference]{iaria}
+\documentclass[conference,flushend]{iaria}
 \pdfoutput=1 % pdflatex hint for arxiv.org (within first 5 lines)
 
 % en-US  = [english]/[american]/[USenglish] <DEFAULT>
@@ -83,7 +83,7 @@ final % Always enable microtype, even if in draft mode. This helps finding bad b
 \hyphenation{block-chain block-chains Ethe-re-um}
 
 % Capitalization: https://capitalizemytitle.com/style/Chicago/
-\title{The Unofficial \textsmaller{IARIA} \LaTeX{} Class Paper Example (v2024-05)}
+\title{The Unofficial \textsmaller{IARIA} \LaTeX{} Class Paper Example (v2024-09)}
 
 \author{
     \IEEEauthorblockN{Christoph P.\ Neumann\,\orcidlink{0000-0002-5936-631X}}
@@ -139,48 +139,49 @@ The remainder of the paper is organized as follows: In Section~II, …
 \{\faWarning{} \textsmaller{IARIA} editorial rules: Last section must be \textquote{Conclusion and Future Work}!\}
 \lipsum[6]
 
-
-
-%%% Advisor
-\nocite{StNe23foodfresh}
-
-%%% First-Author
+%%% CPN Peer-Rev'd
+\nocite{LeNe24vocattllm} % Co
+\nocite{PANP23seccloudfogai} % Co
+\nocite{StNe23foodfresh} % Advisor
 \nocite{NeLe13adhocCoop}
 \nocite{Neumann2012lni}
 \nocite{NeLe12alphaFlow}
 \nocite{NeHL12hydra}
 \nocite{NeWL12offsync}
+\nocite{WaNe12alphaoffsync} % Co
 \nocite{NSWL11alphaadaptive}
+\nocite{ToNe11alphaprops} % Co
+\nocite{JBN+10fcmdb} % Co
+\nocite{FDI+10esmmog} % Co
 \nocite{NeFL10oxdbs}
 \nocite{NeLe10alphaUC}
+\nocite{ILN+09semrttx} % Co
+\nocite{NHSL09oxdbs} % DE
 \nocite{NeLe09alphaflow}
 \nocite{NeLe09dmps}
-\nocite{NHSL09oxdbs} % DE
 \nocite{NeWL09xdsrig} % DE
 \nocite{NRDL09deus}
+\nocite{IND+09lzatav} % Co (DE)
+\nocite{MeNe04testejb} % Pseudo-Co
 
-%%% Co-Authorship
-\nocite{LeNe24vocattllm}
-\nocite{PANP23seccloudfogai}
-\nocite{WaNe12alphaoffsync}
-\nocite{ToNe11alphaprops}
-\nocite{FDI+10esmmog}
-\nocite{JBN+10fcmdb}
-\nocite{ILN+09semrttx}
-\nocite{IND+09lzatav} % DE
-\nocite{MeNe04testejb}
-
-%%% Monographic Work
+%%% CPN Monographic Work
 \nocite{Neumann2013dissBook}
 \nocite{Neumann2012dissPreprint}
 \nocite{neumann2005da}
 \nocite{neumann2004sa}
 
 %%% TechRep / Non-Peer-Reviewed
-
-\nocite{StNe24kosmosis-TR}
+\nocite{ModA-TR-2024SS-CCT-TeamGruen-CloudDice}
+\nocite{ModA-TR-2024SS-BCN-TeamCyan-SkillIssue}
+\nocite{ModA-TR-2024SS-BCN-TeamGelb-GoalGuru}
+\nocite{ModA-TR-2024SS-BCN-TeamWeiss-InfluenzaConnect}
+\nocite{ModA-TR-2024SS-BCN-TeamGruen-NanoVend}
+\nocite{ModA-TR-2024SS-BCN-TeamRot-StockSentinel}
+\nocite{ModA-TR-2024SS-WAE-TeamCyan-Connect4IfYouCan}
+\nocite{ModA-TR-2024SS-WAE-TeamWeiss-Geodingens}
+\nocite{ModA-TR-2024SS-WAE-TeamGruen-MunchMunch}
 \nocite{SaNe24othfb}
-
+\nocite{StNe24kosmosis-TR}
 \nocite{ModA-TR-2023SS-WAE-TeamWeiss-Neunerln}
 \nocite{ModA-TR-2023SS-BDCC-TeamRot-CompVisPipeline}
 \nocite{ModA-TR-2023SS-BDCC-TeamBlau-NauticalNonsense}
@@ -198,7 +199,6 @@ The remainder of the paper is organized as follows: In Section~II, …
 \nocite{ModA-TR-2021SS-WAE-TeamWeiss-CovidDashboard}
 \nocite{ModA-TR-2021SS-WAE-TeamRot-FireForceDefense}
 \nocite{ModA-TR-2021SS-WAE-TeamGruen-MedPlanner}
-
 \nocite{NeRL12deus}
 \nocite{LNR+11egr}
 

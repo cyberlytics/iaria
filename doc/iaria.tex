@@ -13,7 +13,7 @@
 \title{\textsf{iaria}\\
 An Unofficial IARIA LaTeX Class}
 \author{Christoph P.\ Neumann \texttt{$<$cyberpetaneuron@gmail.com$>$}}
-\date{Version 0.3}
+\date{Version 0.4}
 \maketitle
 \PrintChanges
 
@@ -61,7 +61,7 @@ Feel free to adapt this file to your environment and afterwards call
 
 \section{Templates}
 
-For a quick start the \textsf{iaria-lite} distribution contains document
+For a quick start the \textsf{iaria} distribution contains document
 templates.
 The templates can be found in the \texttt{iaria-example-neumann.zip} file.
 
@@ -71,13 +71,34 @@ The templates can be found in the \texttt{iaria-example-neumann.zip} file.
 This package provides the documentclass \texttt{iaria}. The documentclass
 supports the following options:
 
-
 \begin{itemize}
 \item |conference| Passed to IEEEtran
 \item |a4paper|    Passed to IEEEtran
-\item |flushend|   Activate flushend package
-\item |pbalance|   Activate pbalance package
+\item |subfig|     Loads subfig package with IARIA style settings
+\item |subcaption| Loads subcaption package with IARIA style settings
+\item |flushend|   Activate flushend package (compatible with arXiv build process)
+\item |pbalance|   Activate pbalance package (incompatible with arXiv build process)
 \end{itemize}
+
+A Remark about two-column document balancing on the last page:
+The flushend package is recommended, because it works within the arXiv automated build process.
+However, flushend has a major incampatibility with package lineno, which is, e.\,g., transitively loaded by package mindflow.
+Thus, in case when flushend does not have any effect, check whether one of your packages loads lineno.
+Usually you are stuck with your packages and, thus, will instead be forced to switch from flushend to pbalance.
+Please be aware that pbalance works great and has high compatibility, but unfortunately it will not have any effect within the arXiv automated build process.
+In case of both, a somehow needed lineno package and an intended arXiv upload, I recommend to do without two-column balancing on the last page and just to stay away from both flushend and pbalance, in order to ensure that your paper is layouted identically in IARIA submission and arXiv upload.
+I hope this remark proves helpful, it took me some nerve to find out.
+
+There is also another important difference between flushend and pbalance: the handling of footnotes on the last page.
+Flushend provides a decent result, but the result of pbalance is incomprehensible.
+I strongly recommend avoiding footnotes on the last page.
+If you absolutely need footnotes on the last page, consider staying away from two-column balancing on the last page.
+
+About subfigures:
+Both well-known packages subfig and subcaption can be used.
+However, they are not compatible with each other and we can either load one or the other.
+Both require dedicated style settings to be compatible with IARIA formatting rules.
+Thus, the document class provides options to load them for you with correct settings.
 
 \section{Requirements}
 
@@ -95,6 +116,8 @@ which must be available under your installation.
 \item inputenc
 \item orcidlink
 \item pbalance
+\item subcaption
+\item subfig
 \item times
 \item url
 \item xcolor
